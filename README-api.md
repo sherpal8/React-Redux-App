@@ -9,3 +9,16 @@ Here, a deeper understanding was obtained to understand how does Babel work and 
 Also, the configuration of Babel was visited and this done in package.json.
 
 ESLint configured in package.json and web.config.dev.js, so that webpack server will throw error when there is syntactic error. Also, ESLint extension installed in VSCODE to get in-code/ in-line warnings/errors when there is syntactic errors.
+
+## In summary:
+
+Dev environment setup complete:
+
+- Transpile: Babel
+- Bundle: WebPack
+- Lint: ESLint
+- Web server: WebPack
+- Generating index.html: WebPack
+- Loading change on save: WebPack
+
+All above done with one command with npm scripts i.e. `npm start`
