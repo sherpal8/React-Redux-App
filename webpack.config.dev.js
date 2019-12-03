@@ -9,7 +9,7 @@ process.env.NODE_ENV = "development"; // so babel plugin knows this is in dev mo
 module.exports = {
   mode: "development", //to disable prod only features
   target: "web", // can be node / web (browser)
-  devTool: "cheap-module-source-map", // this tool allows us get source map for debudding in browser
+  devtool: "cheap-module-source-map", // this tool allows us get source map for debudding in browser
   entry: "./src/index", // i.e. ./src/index.js
   output: {
     // not technically necessary as webpack doesn't output code for dev. but, needed for config object
@@ -34,7 +34,7 @@ module.exports = {
       favicon: "src/favicon.ico"
     })
   ],
-  modules: {
+  module: {
     rules: [
       // an array to handle different groups of files e.g. js/jsx, css
       {
