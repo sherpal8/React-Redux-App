@@ -7,16 +7,9 @@ class CoursesPage extends Component {
     }
   };
 
-  // arrow function binds to CoursesPage component
-  // thus avoiding binding ambiguities of non-arrow function
-  handleChange = event => {
-    const course = { ...this.state.course, title: event.target.value };
-    this.setState({ course });
-  };
-
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <label>
           <input
             type="text"
@@ -31,6 +24,18 @@ class CoursesPage extends Component {
       </form>
     );
   }
+
+  // arrow function binds to CoursesPage component, thus
+  // avoiding binding ambiguities of non-arrow functions
+  handleChange = event => {
+    const course = { ...this.state.course, title: event.target.value };
+    this.setState({ course });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    alert(this.state.course.title);
+  };
 }
 
 export default CoursesPage;
