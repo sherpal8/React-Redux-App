@@ -22,3 +22,7 @@ Dev environment setup complete:
 - Loading change on save: WebPack
 
 All above done with one command with npm scripts i.e. `npm start`
+
+Also, a basic React application was created, with relevant components.
+
+Redux was used for a better understanding of immutable state management.
