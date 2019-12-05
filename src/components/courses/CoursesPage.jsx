@@ -24,6 +24,11 @@ class CoursesPage extends Component {
         <button>
           <input type="submit" value="Save" />
         </button>
+        <ol>
+          {this.props.courses.map(course => (
+            <li key={course.title}>{course.title}</li>
+          ))}
+        </ol>
       </form>
     );
   }
@@ -37,18 +42,28 @@ class CoursesPage extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.dispatch(courseActions.createCourse(this.state.course));
+    // debugger;
+    this.props.createCourse(this.state.course);
   };
 }
 
 CoursesPage.propTypes = {
-  dispatch: PropTypes.func.isRequired
+  courses: PropTypes.array.isRequired,
+  // dispatch: PropTypes.func.isRequired
+  createCourse: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
+  // debugger;
   return {
     courses: state.courses
   };
 }
 
-export default connect(mapStateToProps)(CoursesPage);
+function mapDispatchToProps(dispatch) {
+  return {
+    createCourse: course => dispatch(courseActions.createCourse(course))
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
