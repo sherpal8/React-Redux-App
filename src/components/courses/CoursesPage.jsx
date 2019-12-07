@@ -5,47 +5,18 @@ import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 
 class CoursesPage extends Component {
-  state = {
-    course: {
-      title: ""
-    }
-  };
-
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          <input
-            type="text"
-            onChange={this.handleChange}
-            placeholder="enter title"
-            value={this.state.course.title}
-          />
-        </label>
-        <button>
-          <input type="submit" value="Save" />
-        </button>
+      <div>
+        <h2>Courses</h2>
         <ol>
           {this.props.courses.map(course => (
             <li key={course.title}>{course.title}</li>
           ))}
         </ol>
-      </form>
+      </div>
     );
   }
-
-  // arrow function binds to CoursesPage component, thus
-  // avoiding binding ambiguities of non-arrow functions
-  handleChange = event => {
-    const course = { ...this.state.course, title: event.target.value };
-    this.setState({ course });
-  };
-
-  handleSubmit = event => {
-    event.preventDefault();
-    // debugger;
-    this.props.actions.createCourse(this.state.course);
-  };
 }
 
 CoursesPage.propTypes = {
