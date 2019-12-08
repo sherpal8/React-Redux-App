@@ -12,7 +12,8 @@ export function loadCourseSuccess(courses) {
 
 export function loadCourses() {
   return function(dispatch) {
-    return courseApi.getCourses
+    return courseApi
+      .getCourses()
       .then(courses => {
         dispatch(loadCourseSuccess(courses));
       })
