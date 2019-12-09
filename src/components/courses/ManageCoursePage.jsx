@@ -1,12 +1,14 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { loadCourses } from "../../redux/actions/courseActions";
 import { loadAuthors } from "../../redux/actions/authorActions";
 import PropTypes from "prop-types";
 
-class ManageCoursePage extends Component {
-  componentDidMount() {
-    const { courses, authors, loadCourses, loadAuthors } = this.props;
+function ManageCoursePage({ courses, authors, loadCourses, loadAuthors }) {
+  // note: useEffect() hook takes function it will call as 1st arg.
+  // its 2nd arg is an array of items to watch to call that function.
+  // as the array arg is empty, it has the same effect as componentDidMount()
+  useEffect(() => {
     if (courses.length === 0) {
       loadCourses().catch(error => {
         alert("Loading courses failed :" + error);
@@ -17,21 +19,19 @@ class ManageCoursePage extends Component {
         alert("Loading authors failed: " + error);
       });
     }
-  }
-  render() {
-    return (
-      <div>
-        <h2>Manage Course</h2>
-      </div>
-    );
-  }
+  }, []);
+  return (
+    <div>
+      <h2>Manage Course</h2>
+    </div>
+  );
 }
 
 ManageCoursePage.propTypes = {
   authors: PropTypes.array.isRequired,
   courses: PropTypes.array.isRequired,
   loadCourses: PropTypes.func.isRequired,
-  loadAuthors: PropTypes.func.isRequire
+  loadAuthors: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
