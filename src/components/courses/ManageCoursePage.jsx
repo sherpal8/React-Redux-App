@@ -47,17 +47,7 @@ function mapStateToProps(state) {
   // debugger;
   return {
     course: newCourse,
-    courses:
-      state.authors.length === 0
-        ? []
-        : state.courses.map(course => {
-            return {
-              ...course,
-              authorName: state.authors.find(
-                author => author.id === course.authorId
-              ).name
-            };
-          }),
+    courses: state.courses,
     authors: state.authors
   };
 }
