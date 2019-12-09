@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, setState } from "react";
 import { connect } from "react-redux";
 import { loadCourses } from "../../redux/actions/courseActions";
 import { loadAuthors } from "../../redux/actions/authorActions";
@@ -32,7 +32,22 @@ function ManageCoursePage({
     }
   }, []);
 
-  return <CourseForm course={course} errors={errors} authors={authors} />;
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setCourse(prevCourse => ({
+      ...prevCourse,
+      [name]: name === "authorId" ? parseInt(value, 10) : value
+    }));
+  }
+
+  return (
+    <CourseForm
+      course={course}
+      errors={errors}
+      authors={authors}
+      onChange={handleChange}
+    />
+  );
 }
 
 ManageCoursePage.propTypes = {
