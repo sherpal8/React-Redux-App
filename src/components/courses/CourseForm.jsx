@@ -19,9 +19,11 @@ const CourseForm = ({
           {errors.onSave}
         </div>
       )}
+
       <TextInput
         name="title"
         label="Title"
+        placeholder="Course title"
         value={course.title}
         onChange={onChange}
         error={errors.title}
@@ -43,6 +45,7 @@ const CourseForm = ({
       <TextInput
         name="category"
         label="Category"
+        placeholder="Course category"
         value={course.category}
         onChange={onChange}
         error={errors.category}
