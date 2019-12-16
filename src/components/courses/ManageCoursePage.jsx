@@ -7,6 +7,7 @@ import CourseForm from "./CourseForm.jsx";
 import { newCourse } from "../../../tools/mockData";
 import { Redirect } from "react-router-dom";
 import Spinner from "../common/Spinner.jsx";
+import { toast } from "react-toastify";
 
 function ManageCoursePage({
   courses,
@@ -52,6 +53,7 @@ function ManageCoursePage({
     event.preventDefault();
     setSaving(true);
     saveCourse(course).then(() => {
+      toast.success("Course saved.");
       history.push("/courses");
     });
   }
