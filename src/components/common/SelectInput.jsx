@@ -28,6 +28,7 @@ const SelectInput = ({
             </option>
           ))}
         </select>
+        {error && <div className="alert alert-danger">{error}</div>}
       </div>
     </div>
   );
