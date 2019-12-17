@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { loadCourses } from "../../redux/actions/courseActions";
+import { loadCourses, deleteCourse } from "../../redux/actions/courseActions";
 import { loadAuthors } from "../../redux/actions/authorActions";
 import PropTypes from "prop-types";
 import CourseList from "./CourseList.jsx";
 import { Redirect } from "react-router-dom";
 import Spinner from "../common/Spinner.jsx";
+import { toast } from "react-toastify";
 
 class CoursesPage extends Component {
   state = { redirectToAddCoursePage: false };
@@ -22,6 +23,12 @@ class CoursesPage extends Component {
       });
     }
   }
+
+  handleDeleteCourse = course => {
+    toast.success("Course deleted"); // OPTIMISTIC delete message before action fired in line before
+    this.props.deleteCourse(course);
+  };
+
   render() {
     return (
       <>
@@ -40,7 +47,10 @@ class CoursesPage extends Component {
             >
               Add Course
             </button>
-            <CourseList courses={this.props.courses} />
+            <CourseList
+              onDeleteClick={this.handleDeleteCourse}
+              courses={this.props.courses}
+            />
           </>
         )}
       </>
@@ -52,8 +62,9 @@ CoursesPage.propTypes = {
   authors: PropTypes.array.isRequired,
   courses: PropTypes.array.isRequired,
   loadCourses: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
   loadAuthors: PropTypes.func.isRequired,
-  loading: PropTypes.bool.isRequired
+  deleteCourse: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
@@ -77,7 +88,8 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
   loadCourses,
-  loadAuthors
+  loadAuthors,
+  deleteCourse
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
