@@ -15,3 +15,16 @@ it("set submit button label 'Saving...' when saving is true", () => {
   );
   expect(tree).toMatchSnapshot();
 });
+
+it("set submit button label 'Save' when saving is false", () => {
+  const tree = renderer.create(
+    <CourseForm
+      course={courses[0]}
+      authors={authors}
+      onSave={jest.fn()}
+      onChange={jest.fn()}
+      saving={false}
+    />
+  );
+  expect(tree).toMatchSnapshot();
+});
