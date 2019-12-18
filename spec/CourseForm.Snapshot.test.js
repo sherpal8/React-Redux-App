@@ -13,7 +13,7 @@ it("set submit button label 'Saving...' when saving is true", () => {
       saving
     />
   );
-  expect(tree).toMatchSnapshot();
+  expect(tree).toMatchSnapshot(); // note: activate snapshot-tools ext VS code to hover-view of code
 });
 
 it("set submit button label 'Save' when saving is false", () => {
