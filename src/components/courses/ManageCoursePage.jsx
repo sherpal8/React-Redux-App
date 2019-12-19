@@ -9,7 +9,7 @@ import { Redirect } from "react-router-dom";
 import Spinner from "../common/Spinner.jsx";
 import { toast } from "react-toastify";
 
-function ManageCoursePage({
+export function ManageCoursePage({
   courses,
   authors,
   loadCourses,
