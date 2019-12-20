@@ -30,3 +30,15 @@ Redux was used for a better understanding of immutable state management.
 ## json-server
 
 This api was used to create a mock api for more rapid local development.
+
+# To run a build:
+
+To run a build version of the application, simply do this:
+
+- fork the repository to your GitHub account
+- then `git clone`
+- cd into the folder called `React-Redux-Part1`
+- once inside the folder, simply run `npm init`
+- then, run this command: `npm run build`
+
+It has been configured set that the build version will run in your localhost on port 8080. Feel free to open `http://localhost:8080/` on your browser and explore the App and to interact with it.
