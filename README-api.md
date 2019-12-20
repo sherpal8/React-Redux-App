@@ -37,6 +37,7 @@ To run this application, simply do this:
 - cd into the folder called `React-Redux-App`
 - once inside the folder, simply run `npm install`
 - then, run this command: `npm run build`
+- it takes a while to run build as a test is run first, then files compiled, and only then the App will run.
 
 It has been configured set that the build version will run in your localhost on port 8080. Feel free to open `http://localhost:8080/` on your browser and explore the App and to interact with it.
 
