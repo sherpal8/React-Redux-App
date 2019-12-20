@@ -111,5 +111,22 @@
       }
     },
     "root": true
-  }
+  },
+  "version": "1.0.0",
+  "main": "webpack.config.dev.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sherpal8/React-Redux-App.git"
+  },
+  "keywords": [
+    "React",
+    "Redux",
+    "Babel"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sherpal8/React-Redux-App/issues"
+  },
+  "homepage": "https://github.com/sherpal8/React-Redux-App#readme"
 }

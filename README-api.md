@@ -10,7 +10,7 @@ Also, the configuration of Babel was visited and this done in package.json.
 
 ESLint configured in package.json and web.config.dev.js, so that webpack server will throw error when there is syntactic error. Also, ESLint extension installed in VSCODE to get in-code/ in-line warnings/errors when there is syntactic errors.
 
-## In summary:
+## Steps involved in completing this project:
 
 Dev environment setup complete:
 
@@ -20,25 +20,30 @@ Dev environment setup complete:
 - Web server: WebPack
 - Generating index.html: WebPack
 - Loading change on save: WebPack
+- Testing as an important part of the code using Jest and Enzyme
 
-All above done with one command with npm scripts i.e. `npm start`
-
-Also, a basic React application was created, with relevant components.
-
-Redux was used for a better understanding of immutable state management.
+All above done with one command with npm scripts i.e. `npm start`. Also, a basic React application was created, with relevant components. Redux was used for a better understanding of immutable state management.
 
 ## json-server
 
-This api was used to create a mock api for more rapid local development.
+This api was used to create a mock api for more rapid local development. The server is accessed via port 3001 @ `locahost:3001`
 
-# To run a build:
+## To run a build version:
 
-To run a build version of the application, simply do this:
+To run this application, simply do this:
 
 - fork the repository to your GitHub account
 - then `git clone`
-- cd into the folder called `React-Redux-Part1`
-- once inside the folder, simply run `npm init`
+- cd into the folder called `React-Redux-App`
+- once inside the folder, simply run `npm install`
 - then, run this command: `npm run build`
 
 It has been configured set that the build version will run in your localhost on port 8080. Feel free to open `http://localhost:8080/` on your browser and explore the App and to interact with it.
+
+## To run dev version:
+
+Simply run `npm start`. Access App on browser via `localhost:3000`
+
+## Finally:
+
+Testing has been used in this project utilising Jest and Enzyme.
