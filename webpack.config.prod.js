@@ -29,11 +29,10 @@ module.exports = {
 
     new webpack.DefinePlugin({
       // This global makes sure React is built in prod mode
-      // for prod-build *but* locally API_URL: "http://localhost:3001"
-      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV), //
+      "process.env.NODE_ENV": JSON.stringify("production"), // previously: process.env.NODE_ENV
       "process.env.API_URL": JSON.stringify(
         "https://react-redux-sherpal.netlify.com/"
-      )
+      ) // prev: "http://localhost:3001"
     }),
     new HtmlWebpackPlugin({
       template: "src/index.html",
