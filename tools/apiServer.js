@@ -59,11 +59,6 @@ server.use(router);
 
 // Start server
 const port = 3001;
-console.log(
-  process.env.PORT,
-  "porrttttttttttttttttttttttttttttt",
-  process.env.API_URL
-);
 server.listen(port, () => {
   console.log(`JSON Server is running on port ${port}`);
 });
