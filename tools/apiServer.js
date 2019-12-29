@@ -58,8 +58,12 @@ server.post("/courses/", function(req, res, next) {
 server.use(router);
 
 // Start server
-const port = process.env.PORT || 3001;
-console.log(port, "porrttttttttttttttttttttttttttttt", process.env.API_URL);
+const port = 3001;
+console.log(
+  process.env.PORT,
+  "porrttttttttttttttttttttttttttttt",
+  process.env.API_URL
+);
 server.listen(port, () => {
   console.log(`JSON Server is running on port ${port}`);
 });
