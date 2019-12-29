@@ -38,7 +38,7 @@ export function ManageCoursePage({
         alert("Loading authors failed: " + error);
       });
     }
-  }, [props.course]);
+  }, [props.course, courses, authors, loadAuthors, loadCourses]);
 
   function handleChange(event) {
     const { name, value } = event.target;
