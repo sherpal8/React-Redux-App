@@ -58,8 +58,8 @@ server.post("/courses/", function(req, res, next) {
 server.use(router);
 
 // Start server
-const port = process.env.NODE_ENV === "production" ? process.env.PORT : 3001;
-console.log(port, "porrtttttttt");
+const port = process.env.PORT || 3001;
+console.log(port, "porrttttttttttttttttttttttttttttt", process.env.API_URL);
 server.listen(port, () => {
   console.log(`JSON Server is running on port ${port}`);
 });
