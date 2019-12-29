@@ -32,7 +32,7 @@ module.exports = {
       // for prod-build *but* locally API_URL: "http://localhost:3001"
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV), //
       "process.env.API_URL": JSON.stringify(
-        "https://trusting-goldberg-75fdf0.netlify.com/"
+        "https://react-redux-sherpal.netlify.com/"
       )
     }),
     new HtmlWebpackPlugin({
