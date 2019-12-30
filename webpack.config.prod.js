@@ -16,7 +16,7 @@ module.exports = {
   output: {
     // not technically necessary as webpack doesn't output code for dev. but, needed for config object
     path: path.resolve(__dirname, "build"), // directory name
-    publicPath: process.env.ASSET_PATH || "/", // URL in browser
+    publicPath: "/", // URL in browser
     filename: "bundle.js"
   },
   plugins: [
