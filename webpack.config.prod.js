@@ -12,7 +12,7 @@ module.exports = {
   mode: "production", // this enables features for prod mode
   target: "web", // can be node / web (browser)
   devtool: "source-map",
-  entry: "./src/index", // i.e. ./src/index.js
+  entry: "./src/index.js", // i.e. ./src/index.js
   output: {
     // not technically necessary as webpack doesn't output code for dev. but, needed for config object
     path: path.resolve(__dirname, "build"), // directory name
