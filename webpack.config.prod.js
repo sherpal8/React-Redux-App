@@ -19,6 +19,9 @@ module.exports = {
     publicPath: "/", // URL in browser
     filename: "bundle.js"
   },
+  devServer: {
+    contentBase: "./build"
+  },
   plugins: [
     // Display bundle stats
     new webpackBundleAnalyzer.BundleAnalyzerPlugin({
@@ -31,8 +34,8 @@ module.exports = {
       "process.env.API_URL": JSON.stringify("http://localhost:3001") // base-url: mock API served locally
     }),
     new HtmlWebpackPlugin({
-      template: "src/index.html",
-      favicon: "src/favicon.ico",
+      template: path.resolve("src/index.html"),
+      favicon: path.resolve("src/favicon.ico"),
       minify: {
         removeComments: true,
         collapseWhiteSpace: true,
