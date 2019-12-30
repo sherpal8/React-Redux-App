@@ -1,13 +1,13 @@
-// to configure webpack for development env --> must be in root folder
-const webpack = require("webpack"); // CommonJS style syntax as ES6 not yet supported by Node
+// to configure webpack for production env --> must be in root folder
+const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpackBundleAnalyzer = require("webpack-bundle-analyzer");
 
-process.env.NODE_ENV = "production"; // so babel plugin knows this is in dev mode
+process.env.NODE_ENV = "production"; // so babel plugin knows this is in production mode
 
-// below is a JS object to be exported for Webpack config in dev env
+// below is a JS object to be exported for Webpack config in production env
 module.exports = {
   mode: "production", // this enables features for prod mode
   target: "web", // can be node / web (browser)
@@ -16,7 +16,7 @@ module.exports = {
   output: {
     // not technically necessary as webpack doesn't output code for dev. but, needed for config object
     path: path.resolve(__dirname, "build"), // directory name
-    // publicPath: "/", // URL in browser
+    publicPath: "/", // URL in browser
     filename: "bundle.js"
   },
   plugins: [
@@ -26,19 +26,14 @@ module.exports = {
     }),
 
     new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" }),
-
     new webpack.DefinePlugin({
-      // This global makes sure React is built in prod mode
-      "process.env.NODE_ENV": JSON.stringify("production"), // previously: process.env.NODE_ENV
-      "process.env.API_URL": JSON.stringify(
-        "https://react-redux-sherpal.netlify.com/"
-      ) // prev: "http://localhost:3001"
+      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV), // NODE_ENV = 'production' (see above)
+      "process.env.API_URL": JSON.stringify("http://localhost:3001") // base-url: mock API served locally
     }),
     new HtmlWebpackPlugin({
       template: "src/index.html",
       favicon: "src/favicon.ico",
       minify: {
-        // see https://github.com/kangax/html-minifier#options-quick-reference
         removeComments: true,
         collapseWhiteSpace: true,
         removeRedundantAttributes: true,
